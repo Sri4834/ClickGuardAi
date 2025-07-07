@@ -1,0 +1,27 @@
+HEY CONNECTIONS 👋🙋‍♂️
+Hope you all are doing great 💝🥰
+
+🚀 I have developed an Chrome Extension "ClickGuard.AI" - Your Real-Time Phishing & Malicious Link Defender! 🛡️🔒
+
+I developed ClickGuard.AI, a powerful Chrome extension that protects users from phishing and malicious links using cutting-edge AI technology. It intercepts every link click, analyzes URLs instantly with a trained AI model, and blocks or warns about dangerous or suspicious links to keep you safe online.
+
+✨ Key Features:
+- Real-time URL scanning on all link clicks 🔍
+- AI-powered phishing and malicious link detection 🤖
+- Automatic blocking of dangerous links & warnings for suspicious ones 🚫⚠️
+- User-friendly whitelist management for trusted domains ✅
+- Cyberpunk-themed sleek UI with intuitive controls 🌃🎨
+- Local storage of user settings and threat logs for personalized protection 📂
+- Easy installation and seamless integration as a Chrome extension 🛠️
+
+💡 Behind the scenes:
+- AI model trained on large phishing URL datasets using TF-IDF and logistic regression 📊
+- Flask backend serving the AI model for fast URL analysis ⚡
+- Chrome extension background service worker intercepts and analyzes URLs in real-time 🔄
+- Popup UI for managing settings, viewing threat history, and analyzing custom URLs 🖥️
+
+This project combines AI, cybersecurity, and modern web technologies to create a robust defense against online threats. Proud to contribute to safer browsing experiences! 🌐🛡️
+
+#CyberSecurity #PhishingProtection #AI #MachineLearning #ChromeExtension #WebSecurity #ClickGuardAI #OpenSource #Innovation
+
+🔥 Stay safe, stay smart with ClickGuard.AI! 🔥

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ClickGuard.AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="./final!.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-logo">
+      ClickGuard<span class="header-logo-accent">.AI</span>&nbsp;&nbsp;<span><input id="ExtensionOn/OffSwitch" type="checkbox" checked /></span>
+    </div>
+  </header>
+  
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <button id="sidebarToggle" aria-label="Toggle Sidebar" class="sidebar-toggle-btn">&#9776;</button>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li data-page="dashboard" class="active" tabindex="0" role="button" aria-pressed="true">Dashboard</li>
+          <li data-page="history" tabindex="0" role="button" aria-pressed="false">History</li>
+          <li data-page="profile" tabindex="0" role="button" aria-pressed="false">Profile</li>
+          <li data-page="whitelist" tabindex="0" role="button" aria-pressed="false">Whitelist</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+      <!-- Dashboard Page -->
+      <section class="page" id="dashboard" style="display: block;">
+        <div class="status-card">
+          <div class="status-icon" id="status-icon" aria-live="polite" aria-label="Protection status icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shield" role="img" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="status-info">
+            <h2 id="protection-status" aria-live="polite">Protection Active</h2>
+            <p id="statusDescription">Real-time scanning enabled</p>
+            <div class="setting-item">
+              <label for="modelLevel" class="toggle-label">Model Level</label>
+              <select id="modelLevel" aria-label="Select AI model level">
+                <option value="standard">Standard</option>
+                <option value="aggressive">Aggressive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="analysis-card">
+          <h3>Analyze Custom URL</h3>
+          <form id="analyze-form" aria-label="Analyze URL form">
+            <div class="url-input-container">
+              <input type="url" id="analyze-url" placeholder="Enter URL to analyze..." aria-required="true" aria-describedby="urlHelp" />
+              <button type="submit" id="analyzeBtn" class="glow-btn" aria-label="Analyze URL">Analyze</button>
+            </div>
+            <div class="analysis-results" id="analysisResults" aria-live="polite" style="display: none;"></div>
+          </form>
+        </div>
+
+        <div class="threats-card">
+          <h3>Recent Threats</h3>
+          <div class="threats-list" id="threatsList" aria-live="polite" aria-relevant="additions"></div>
+        </div>
+      </section>
+
+      <!-- History Page -->
+      <section class="page" id="history" style="display: none;">
+        <div class="history-header">
+          <h2>Browsing History</h2>
+          <div class="history-filter">
+            <label for="historyFilter" class="sr-only">Filter history</label>
+            <select id="historyFilter" aria-label="Filter browsing history">
+              <option value="all">All</option>
+              <option value="safe">Safe</option>
+              <option value="suspicious">Suspicious</option>
+              <option value="dangerous">Dangerous</option>
+            </select>
+          </div>
+        </div>
+        <div class="history-list" id="historyList" aria-live="polite" aria-relevant="additions"></div>
+      </section>
+
+      <!-- Profile Page -->
+      <section class="page" id="profile" style="display: none;">
+        <div class="profile-header">
+          <h2>User Profile</h2>
+        </div>
+        <form id="profileForm" aria-label="User profile form">
+          <div class="form-group">
+            <label for="userName">Name</label>
+            <input type="text" id="userName" aria-required="true" />
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input type="email" id="userEmail" aria-required="true" />
+          </div>
+          <div class="form-group">
+            <label for="userNotifications">Notification Preferences</label>
+            <select id="userNotifications" aria-label="Notification preferences">
+              <option value="all">All Threats</option>
+              <option value="dangerous">Dangerous Only</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="protectionLevel">Protection Level</label>
+            <select id="protectionLevel" aria-label="Protection level">
+              <option value="standard">Standard</option>
+              <option value="aggressive">Aggressive</option>
+            </select>
+          </div>
+          <button type="submit" class="glow-btn full-width">Save Changes</button>
+        </form>
+      </section>
+
+      <!-- Whitelist Page -->
+      <section class="page" id="whitelist" style="display: none;">
+        <div class="whitelist-header">
+          <h2>Whitelist Management</h2>
+        </div>
+        <form id="whitelistForm" aria-label="Whitelist management form">
+          <div class="form-group">
+            <label for="whitelistInput">Add Domain to Whitelist</label>
+            <input type="text" id="whitelistInput" placeholder="example.com" aria-required="true" />
+          </div>
+          <button type="submit" class="glow-btn full-width">Add to Whitelist</button>
+        </form>
+        <div class="whitelist-list" id="whitelistList" aria-live="polite" aria-relevant="additions"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toastContainer" aria-live="assertive" aria-atomic="true" class="toast-container"></div>
+
+  <script src="./popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ClickGuard.AI",
+  "version": "1.0",
+  "description": "Real-Time Phishing and Malicious Link Detection using AI",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webRequest",
+    "declarativeNetRequest",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}

@@ -1,45 +1,77 @@
-Hey Connections, oláá..(Hello)! 👋🙋‍♂️
-Hope you're all doing great! 💝🥰
+# ClickGuard.AI - Real-Time Phishing and Malicious Link Detection Chrome Extension
 
-🚀 I'm excited to share that I’ve developed a Chrome Extension called ClickGuard.AI — Your Real-Time Phishing & Malicious Link Defender! 🛡️🔒
+## Overview
 
-🔧 What is ClickGuard.AI?
-ClickGuard.AI is a smart Chrome extension that safeguards users from phishing and malicious links using cutting-edge AI technology.
-It intercepts every link click, analyzes the URL in real-time with a trained AI model, and:
+ClickGuard.AI is a Chrome Extension designed to protect users from phishing and malicious links in real-time using AI-based link analysis. It intercepts link clicks, analyzes URLs with an AI model, blocks dangerous links, warns on suspicious links, and allows users to whitelist trusted domains.
 
-→ If safe ➜ allows you to proceed
-→ If risky ➜ blocks or warns you about potential threats
+## Features
 
-✨ Key Features:
+- Real-time URL scanning on all link clicks
+- AI-based link analysis (stub for integration with your AI model)
+- Blocking and alerting for dangerous and suspicious links
+- Digital signature verification placeholder
+- User whitelist management with UI controls
+- Extension icon changes based on security status
+- Local storage for user settings and threat logs
+- Cyberpunk-themed UI with TailwindCSS-inspired styling
+- Plain HTML, JavaScript, and CSS (no TypeScript, React, or Next.js)
 
-  • Real-time scanning of every URL you click 🔍
+## Installation
 
-  • AI-powered detection of phishing & malicious links 🤖
+1. Clone or download this repository.
+2. Open Chrome and navigate to `chrome://extensions/`.
+3. Enable "Developer mode" (toggle in the top right).
+4. Click "Load unpacked" and select the project folder.
+5. The ClickGuard.AI extension should appear in your toolbar.
 
-  • Automatic blocking of harmful links & alerts for suspicious ones 🚫⚠️
+## Usage
 
-  • Whitelist manager for trusted domains ✅
+- Click the extension icon to open the popup UI.
+- Enable or disable real-time scanning and other settings.
+- Manage your whitelist of trusted domains.
+- View recent threat detections.
+- The extension will automatically intercept link clicks and block or warn based on AI analysis.
 
-  • Sleek, professional UI with intuitive controls 🎮
+## AI Model Integration
 
-  • Local storage for settings and threat logs 📂
+- The current implementation includes a stub function `analyzeUrlWithAI` in `background.js`.
+- Replace this stub with your own AI model integration or API call.
+- Ensure the AI model returns an object with `threatLevel` (`safe`, `suspicious`, `dangerous`) and `reasons` array.
 
-  • Smooth installation & integration with Chrome 🛠️
+## Training with Large Datasets
 
-💡 Behind the Scenes:
+- The provided training script `backend/train_model.py` expects a large phishing URL dataset CSV file named `phishing_data.csv` in the backend directory.
+- The dataset should have columns `url` and `label` (0 for safe, 1 for phishing/malicious).
+- You can download large public phishing URL datasets from sources such as:
+  - [Phishing Websites Data Set - UCI ML Repository](https://archive.ics.uci.edu/ml/datasets/phishing+websites)
+  - [PhishTank](https://www.phishtank.com/)
+  - [OpenPhish](https://openphish.com/)
+- Place the dataset CSV file as `backend/phishing_data.csv` before running the training script.
+- Run `python backend/train_model.py` to train and save the AI model.
+- The Flask backend (`backend/app.py`) loads the saved model for inference.
 
-  • AI model trained on phishing datasets (PhishTank + Logistic Regression) 📊
+Please ensure you have the required Python dependencies installed from `backend/requirements.txt`.
 
-  • Flask backend to serve AI predictions in real-time ⚡
+## Development
 
-  • Chrome extension with a background service worker for live URL interception 🔄
+- Modify `popup.html`, `popup.js`, and `styles.css` for UI changes.
+- Modify `background.js` for link interception and AI integration.
+- Icons are located in the `icons/` folder.
 
-  • Popup UI for settings, threat logs, and custom URL analysis 🖥️
+## Cyberpunk Theme
 
-This project brings together AI + Cybersecurity + Web Tech to create a powerful defense system against modern online threats. I'm proud to contribute to a safer browsing experience for everyone! 🌐🛡️
+- The UI uses a dark cyberpunk theme with neon colors and futuristic fonts.
+- Customize `styles.css` to adjust the theme.
 
-🔥 I’ve learned a lot during the development of ClickGuard.AI — and I know there’s still so much more to improve. But for now, I’m thrilled to share this innovation with you all!
+## Notes
 
-Thank you for your time — see you soon! 🥰💝
+- Digital signature verification is a placeholder and requires additional implementation.
+- Backend integration for logging and threat intelligence is optional and not included.
 
-#CyberSecurity #PhishingProtection #AI #MachineLearning #ChromeExtension #WebSecurity #ClickGuardAI #OpenSource #Innovation
+## License
+
+MIT License
+
+---
+
+© 2024 ClickGuard.AI
